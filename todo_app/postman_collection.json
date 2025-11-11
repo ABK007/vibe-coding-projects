@@ -1,0 +1,189 @@
+{
+  "info": {
+    "name": "Todo API Collection",
+    "description": "Complete API endpoints for Todo application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Root",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Create Todo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Complete FastAPI project\",\n  \"description\": \"Build a complete todo app with FastAPI and PostgreSQL\",\n  \"priority\": \"high\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", ""]
+        }
+      }
+    },
+    {
+      "name": "Get All Todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", ""]
+        }
+      }
+    },
+    {
+      "name": "Get Todos with Filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/?completed=false&priority=high&sort_by=created_at&sort_order=desc",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", ""],
+          "query": [
+            {
+              "key": "completed",
+              "value": "false"
+            },
+            {
+              "key": "priority",
+              "value": "high"
+            },
+            {
+              "key": "sort_by",
+              "value": "created_at"
+            },
+            {
+              "key": "sort_order",
+              "value": "desc"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/?search=project",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", ""],
+          "query": [
+            {
+              "key": "search",
+              "value": "project"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Todo by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Todo",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated title\",\n  \"completed\": true,\n  \"priority\": \"medium\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", "1"]
+        }
+      }
+    },
+    {
+      "name": "Toggle Todo Completion",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/1/toggle",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", "1", "toggle"]
+        }
+      }
+    },
+    {
+      "name": "Delete Todo",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete All Completed Todos",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/todos/completed/all",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "todos", "completed", "all"]
+        }
+      }
+    }
+  ]
+}
