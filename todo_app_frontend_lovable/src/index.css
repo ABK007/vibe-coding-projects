@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Gradient colors */
+    --gradient-cyan: 188 91% 43%; /* #06B6D4 */
+    --gradient-blue: 217 91% 60%; /* #3B82F6 */
+    
+    --background: 0 0% 100%;
+    --foreground: 222 84% 11%; /* #0F172A */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 11%;
+
+    --primary: 38 92% 50%; /* Amber 500 #F59E0B */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 91% 43%; /* Cyan 500 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%; /* #22C55E */
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%; /* #DC2626 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--gradient-cyan)) 0%, hsl(var(--gradient-blue)) 100%);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--gradient-cyan)) 0%, hsl(var(--gradient-blue)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
